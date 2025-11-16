@@ -10,4 +10,5 @@ Auto-toggle Proxifier's WPF driver for convenience against EA's Javelin Anti-Che
 - The tool needs to monitor whether *Proxifier's front-end GUI* is running or not. When *the Proxifier's GUI* isn't running, the tool will automatically stop the `ProxifierDrv` (the back-bone driver of Proxifier).
 
 # Note
-## When `ProxifierDrv` is stopped, you need to run *the Proxifier's GUI* **TWICE** within 5-second. Because the first time you run *Proxifier's GUI* will pop up an error dialog complaining about "Proxifier driver is not running". Just close the error dialog and immediately run *the Proxifier's GUI* again within 5-second (countdown start when the error dialog appears) and it should be working.
+## When `ProxifierDrv` is stopped, you need to run *the Proxifier's GUI* **TWICE** within 5-second.
+### Because the first time you run *Proxifier's GUI* will pop up an error dialog complaining about "Proxifier driver is not running". Just close the error dialog and immediately run *the Proxifier's GUI* again within 5-second (countdown start when the error dialog appears) and it should be working.
