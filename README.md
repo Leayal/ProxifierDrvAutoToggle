@@ -1,5 +1,7 @@
 # ProxifierDrvAutoToggle
-Auto-toggle Proxifier's WPF driver for convenience against EA's Javelin Anti-Cheat.
+Auto-toggle Proxifier's driver for convenience against EA's Javelin Anti-Cheat.
+
+tl;dr: This tool ensures Proxifier is completely disabled when you exit the Proxifier program (without needing to uninstall Proxifier), in order to let you play [Battlefield 6](https://store.steampowered.com/app/2807960/Battlefield_6/) more conveniently.
 
 This is a very bare-bone workaround.
 
