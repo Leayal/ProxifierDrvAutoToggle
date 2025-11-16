@@ -9,6 +9,7 @@ This is a very bare-bone workaround.
 ## This is a service-based tool. Meaning you need to **install** the tool as service and let it run in background.
 - Use launch argument `install` to install the tool as a background service.
 - Use launch argument `uninstall` (or `remove`, `delete`) to uninstall the background service which has been created by this tool.
+- Both installation and uninstallation of the service require Administration privileges.
 
 ### But why running background?
 - The tool needs to monitor whether *Proxifier's front-end GUI* is running or not. When *the Proxifier's GUI* isn't running, the tool will automatically stop the `ProxifierDrv` (the back-bone driver of Proxifier).
