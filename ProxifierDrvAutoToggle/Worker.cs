@@ -27,6 +27,7 @@ namespace ProxifierDrvAutoToggle
                 {
                     var procs = Process.GetProcessesByName("proxifier");
                     var buffer = new char[2048];
+                    bool foundProxifierFirstRun = false;
                     foreach (var proc in procs)
                     {
                         try
@@ -37,6 +38,7 @@ namespace ProxifierDrvAutoToggle
                                 var exe_path = new string(buffer, 0, (int)cap);
                                 if (string.Equals(exe_path, DefaultPath_ProxifierInstallationBinaryPath, StringComparison.OrdinalIgnoreCase) || IsProxifierBinary(exe_path))
                                 {
+                                    foundProxifierFirstRun = true;
                                     OnProxifierFound(proc);
                                 }
                                 else
@@ -53,6 +55,10 @@ namespace ProxifierDrvAutoToggle
                         {
                             proc.Dispose();
                         }
+                    }
+                    if (!foundProxifierFirstRun)
+                    {
+                        Process.Start(Program.STR_SC, $"stop {Program.ServiceName_ProxifierDrv}")?.Dispose();
                     }
                     while (!stoppingToken.IsCancellationRequested)
                     {
@@ -116,7 +122,7 @@ namespace ProxifierDrvAutoToggle
             proc.EnableRaisingEvents = true;
             _ = proc.HasExited;
             this.timer.Stop();
-            Process.Start(Program.STR_SC, "start ProxifierDrv")?.Dispose();
+            Process.Start(Program.STR_SC, $"start {Program.ServiceName_ProxifierDrv}")?.Dispose();
         }
 
         private void ProxifierProc_Exited(object? sender, EventArgs e)
@@ -127,7 +133,7 @@ namespace ProxifierDrvAutoToggle
 
         private void Timer_Elapsed(object? sender, ElapsedEventArgs e)
         {
-            Process.Start(Program.STR_SC, "stop ProxifierDrv")?.Dispose();
+            Process.Start(Program.STR_SC, $"stop {Program.ServiceName_ProxifierDrv}")?.Dispose();
         }
 
         private static bool IsProxifierBinary(string filename)

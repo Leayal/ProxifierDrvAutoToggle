@@ -1,5 +1,7 @@
 # ProxifierDrvAutoToggle
-Auto-toggle Proxifier's WPF driver for convenience against EA's Javelin Anti-Cheat
+Auto-toggle Proxifier's WPF driver for convenience against EA's Javelin Anti-Cheat.
+
+This is a very bare-bone workaround.
 
 # Usage
 ## This is a service-based tool. Meaning you need to **install** the tool as service and let it run in background.

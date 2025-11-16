@@ -6,12 +6,14 @@ namespace ProxifierDrvAutoToggle
     {
         internal static readonly string STR_SC = Path.GetFullPath("sc.exe", Environment.GetFolderPath(Environment.SpecialFolder.System));
         internal const string ServiceName = "Leayal_ProxifierDrvAutoToggle";
+        internal const string ServiceName_ProxifierDrv = "ProxifierDrv";
         public static void Main(string[] args)
         {
             if (args.Length != 0)
             {
                 if (string.Equals(args[0], "install", StringComparison.OrdinalIgnoreCase))
                 {
+                    RunProcess(STR_SC, $"config {ServiceName_ProxifierDrv} start= demand");
                     RunProcess(STR_SC, new string[]
                     {
                         "create",
@@ -30,6 +32,7 @@ namespace ProxifierDrvAutoToggle
                 {
                     RunProcess(STR_SC, $"stop \"{ServiceName}\"");
                     RunProcess(STR_SC, $"delete \"{ServiceName}\"");
+                    RunProcess(STR_SC, $"config {ServiceName_ProxifierDrv} start= auto");
                     Console.WriteLine($"Service {ServiceName} has been removed successfully.");
                     return;
                 }
