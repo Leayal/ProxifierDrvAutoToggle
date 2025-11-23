@@ -15,7 +15,9 @@ This is a very bare-bone workaround.
 - The tool needs to monitor whether *Proxifier's front-end GUI* is running or not. When *the Proxifier's GUI* isn't running, the tool will automatically stop the `ProxifierDrv` (the back-bone driver of Proxifier).
 
 # Note
-## When `ProxifierDrv` is stopped, you **may** need to run *the Proxifier's GUI* **TWICE** within 5-second.
+## - When `ProxifierDrv` is stopped, you **may** need to run *the Proxifier's GUI* **TWICE** within 5-second.
 ### Because the first time you run *Proxifier's GUI* will pop up an error dialog complaining about "Proxifier driver is not running". Just close the error dialog and immediately run *the Proxifier's GUI* again within 5-second (countdown start when the error dialog appears) and it should be working.
-#### If you run Proxifier but the error dialog doesn't show up, then it's all good on first try.
+### If you run Proxifier but the error dialog doesn't show up, then it's all good on first try.
 Why this happens is because this tool **may** not start the `ProxifierDrv` service fast enough to be before *the Proxifier's GUI* launches.
+## - To actually exit Proxifier, you need to use one of these methods: *`File->Exit` in the Proxifier's window menu*, or `Exit` via the icon's context menu in the Notification Area (or the clock area of the TaskBar).
+### Only when you fully exit *the Proxifier's GUI* than the service will start to take action to disable the driver.
